@@ -1,12 +1,13 @@
 package studio.eyesthetics.soundrecorder.activities;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toolbar;
+import android.support.v7.widget.Toolbar;
 
 import studio.eyesthetics.soundrecorder.R;
 
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     //private PagerSlidingTabStrip tabs; верхние табы, вроде есть встроенные в android flat design support
+    private TabLayout tabs;
     private ViewPager pager;
 
     @Override
@@ -22,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(new MyAdapter(getSupportFragmentManager()));
-        //tabs = (PagerSl)????????? присваиваем табы
+        tabs = (TabLayout) findViewById(R.id.tabs);
+        tabs.setupWithViewPager(pager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setPopupTheme(R.style.ThemeOverlay AppCompat_Light);
+        toolbar.setPopupTheme(R.style.ThemeOverlay_AppCompat_Light);
         if(toolbar != null) {
             setSupportActionBar(toolbar);
         }
