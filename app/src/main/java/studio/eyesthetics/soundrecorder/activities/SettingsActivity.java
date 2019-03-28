@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 
 import studio.eyesthetics.soundrecorder.R;
 
+import studio.eyesthetics.soundrecorder.fragments.SettingsFragment;
+
 public class SettingsActivity extends android.support.v7.app.AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
