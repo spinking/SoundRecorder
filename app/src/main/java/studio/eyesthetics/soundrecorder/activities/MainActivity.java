@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import studio.eyesthetics.soundrecorder.R;
+import studio.eyesthetics.soundrecorder.fragments.FileViewerFragment;
 
 public class MainActivity extends AppCompatActivity {
 
