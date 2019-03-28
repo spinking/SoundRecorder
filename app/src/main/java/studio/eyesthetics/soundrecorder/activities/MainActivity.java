@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class MyAdapter extends FragmentPagerAdapter {
-        private String[] titles = { getString(R.string.tab_title_record), getString(R.string.title_saved_recordings)};
+        private String[] titles = { getString(R.string.tab_title_record), getString(R.string.tab_title_saved_recordings)};
 
         public MyAdapter(FragmentManager fm) {
             super(fm);
