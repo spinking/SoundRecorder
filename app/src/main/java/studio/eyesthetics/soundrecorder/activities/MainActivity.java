@@ -1,5 +1,6 @@
 package studio.eyesthetics.soundrecorder.activities;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import studio.eyesthetics.soundrecorder.R;
 
@@ -38,16 +41,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().infate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //Handle action bar item clicks here.
+        switch(item.getItemId()) {
+            case R.id.action_settings:
+                Intent i = new Intent(this, SettingsActivity.class);
+        }
+        return true;
     }
-
-    
 
     public class MyAdapter extends FragmentPagerAdapter {
         private String[] titles = { getString(R.string.tab_title_record), getString(R.string.title_saved_recordings)};
