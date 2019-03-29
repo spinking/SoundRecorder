@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import studio.eyesthetics.soundrecorder.DBHelper;
 import studio.eyesthetics.soundrecorder.RecordingItem;
 import studio.eyesthetics.soundrecorder.listeners.OnDatabaseChangedListener;
 import studio.eyesthetics.soundrecorder.R;
+import studio.eyesthetics.soundrecorder.fragments.PlaybackFragment;
 
 public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.RecordingsViewHolder> implements OnDatabaseChangedListener {
     private static final String LOG_TAG = "FileViewerAdapter";
