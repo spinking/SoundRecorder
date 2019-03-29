@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.io.File;
 
 import studio.eyesthetics.soundrecorder.R;
+import studio.eyesthetics.soundrecorder.RecordingService;
 
 public class RecordFragment extends Fragment {
     //the fragment initialization parameter
