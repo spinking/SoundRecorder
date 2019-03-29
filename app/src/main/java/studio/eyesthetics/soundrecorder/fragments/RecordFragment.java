@@ -68,8 +68,7 @@ public class RecordFragment extends Fragment {
         mRecordingPrompt = (TextView) recordView.findViewById(R.id.recording_status_text);
 
         mRecordButton = (FloatingActionButton) recordView.findViewById(R.id.btnRecord);
-        mRecordButton.setColorNormal(getResources().getColor(R.color.colorPrimary));
-        mRecordButton.setColorPressed(getResources().getColor(R.color.colorPrimaryDark));
+        mRecordButton.setRippleColor(getResources().getColor(R.color.colorPrimaryDark));
         mRecordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
