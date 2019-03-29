@@ -9,6 +9,7 @@ import android.provider.BaseColumns;
 
 import java.util.Comparator;
 
+import studio.eyesthetics.soundrecorder.DBHelper;
 import studio.eyesthetics.soundrecorder.listeners.OnDatabaseChangedListener;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -70,14 +71,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 DBHelperItem.COLUMN_NAME_RECORDING_LENGTH,
                 DBHelperItem.COLUMN_NAME_TIME_ADDED
         };
-        Cursor c = db.query(DBHelperItem.TABLE_NAME, projection, null, null, null, null, null)
+        Cursor c = db.query(DBHelperItem.TABLE_NAME, projection, null, null, null, null, null);
         if(c.moveToPosition(position)) {
             RecordingItem item = new RecordingItem();
             item.setId(c.getInt(c.getColumnIndex(DBHelperItem._ID)));
             item.setName(c.getString(c.getColumnIndex(DBHelperItem.COLUMN_NAME_RECORDING_NAME)));
             item.setFilePath(c.getString(c.getColumnIndex(DBHelperItem.COLUMN_NAME_RECORDING_FILE_PATH)));
-            item.setLength(c.getString(c.getColumnIndex(DBHelperItem.COLUMN_NAME_RECORDING_LENGTH)));
-            item.setTime(c.getString(c.getColumnIndex(DBHelperItem.COLUMN_NAME_TIME_ADDED)));
+            item.setLength(c.getInt(c.getColumnIndex(DBHelperItem.COLUMN_NAME_RECORDING_LENGTH)));
+            item.setTime(c.getLong(c.getColumnIndex(DBHelperItem.COLUMN_NAME_TIME_ADDED)));
             c.close();
             return item;
         }
