@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import studio.eyesthetics.soundrecorder.R;
 import studio.eyesthetics.soundrecorder.fragments.FileViewerFragment;
+import studio.eyesthetics.soundrecorder.fragments.RecordFragment;
 
 public class MainActivity extends AppCompatActivity {
 
