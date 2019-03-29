@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,7 +72,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
                 try {
                     PlaybackFragment playbackFragment = new PlaybackFragment().newInstance(getItem(holder.getPosition()));
 
-                    FragmentTransaction transaction = ((FragmentTransaction) mContext)
+                    FragmentTransaction transaction = ((FragmentActivity) mContext)
                             .getSupportFragmentManager()
                             .beginTransaction();
 
@@ -81,7 +83,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
             }
         });
 
-        holder.cardView.setOnLongClickListener(new View.OnClickListener() {
+        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 ArrayList<String> entrys = new ArrayList<String>();
@@ -122,6 +124,17 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
         });
     }
 
+    @Override
+    public RecordingsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater
+                .from(parent.getContext())
+                .inflate(R.layout.card_view, parent, false);
+
+        mContext = parent.getContext();
+
+        return new RecordingsViewHolder(itemView);
+    }
+
 
 
     public static class RecordingsViewHolder extends RecyclerView.ViewHolder {
@@ -156,8 +169,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
     }
 
     @Override
-    //TODO
-    public void onDatabaseEntryRenamed() {
+    public void onNewDatabaseEntryRenamed(){
 
     }
 
@@ -210,7 +222,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
     public void shareFileDialog(int position) {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(getItem(position).getFilePath()));
+        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(getItem(position).getFilePath())));
         shareIntent.setType("audio/mp4");
         mContext.startActivity(Intent.createChooser(shareIntent, mContext.getText(R.string.send_to)));
     }
