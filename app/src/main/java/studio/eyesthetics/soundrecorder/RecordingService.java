@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
@@ -37,8 +38,17 @@ public class RecordingService extends Service {
     private OnTimerChangedListener onTimerChangedListener = null;
     private static final SimpleDateFormat mTimerFormat = new SimpleDateFormat("mm:ss", Locale.getDefault());
 
-    private Timer timer = null;
+    private Timer mTimer = null;
     private TimerTask mIncrementTimerTask = null;
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    public interface OnTimerChangedListener {
+        void onTimerChanged(int seconds);
+    }
 
     @Override
     public void onCreate() {
@@ -78,7 +88,7 @@ public class RecordingService extends Service {
         try {
             mRecorder.prepare();
             mRecorder.start();
-            mStartingTimeMillis = System.currentTimeMillis()
+            mStartingTimeMillis = System.currentTimeMillis();
         } catch (IOException e) {
             Log.e(LOG_TAG, "prepare() falied");
         }
@@ -136,7 +146,7 @@ public class RecordingService extends Service {
     private Notification createNotification() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
                 .setSmallIcon(R.drawable.ic_mic_white_36dp)
-                .setContentTitle(getString(R.string.notification_recordings))
+                .setContentTitle(getString(R.string.notification_recording))
                 .setContentText(mTimerFormat.format(mElapsedSeconds * 1000))
                 .setOngoing(true);
         mBuilder.setContentIntent(PendingIntent.getActivities(getApplicationContext(), 0, new Intent[]{new Intent(getApplicationContext(), MainActivity.class)}, 0));
