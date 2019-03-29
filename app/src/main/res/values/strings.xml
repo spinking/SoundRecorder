@@ -9,6 +9,12 @@
     <string name="tab_title_record">Record</string>
     <string name="tab_title_saved_recordings">Saved Recordings</string>
 
+    <!-- Toast -->
+    <string name="toast_recording_start">Recording starte</string>
+    <string name="toast_recording_finish">Recording finish</string>
+    <string name="toast_file_delete">%1$s successfully deleted</string>
+    <string name="toast_file_exists">The file %1$s already exists. Please choose a different file name.</string>
+
     <!-- Dialogs -->
     <string name="dialog_title_delete">Confirm Delete...</string>
     <string name="dialog_text_delete">Are you sure you would like to delete this file?</string>

@@ -96,10 +96,10 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0) {
-                            shareFiledialog(holder.getPosition());
+                            shareFileDialog(holder.getPosition());
                         } if (which == 1) {
                             renameFileDialog(holder.getPosition());
-                        } else if (item == 2) {
+                        } else if (which == 2) {
                             deleteFileDialog(holder.getPosition());
                         }
                     }
@@ -194,7 +194,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
         if(f.exists() && !f.isDirectory()) {
             //file name is not unique, cannot rename file.
             Toast.makeText(mContext,
-                    String.format(mContext.getString(R.string.toast_file_exist), name),
+                    String.format(mContext.getString(R.string.toast_file_exists), name),
                     Toast.LENGTH_SHORT).show();
         } else {
             //file name is unique, rename file
