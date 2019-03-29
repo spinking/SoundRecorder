@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import java.io.File;
 
 import studio.eyesthetics.soundrecorder.R;
+import studio.eyesthetics.soundrecorder.adapters.FileViewerAdapter;
 
 public class FileViewerFragment extends Fragment {
     private static final String ARG_POSITION = "position";
