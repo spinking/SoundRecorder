@@ -29,16 +29,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pager = (ViewPager) findViewById(R.id.pager);
-        pager.setAdapter(new MyAdapter(getSupportFragmentManager()));
-        tabs = (TabLayout) findViewById(R.id.tabs);
-        tabs.setupWithViewPager(pager);
+        //pager = (ViewPager) findViewById(R.id.pager);
+        //pager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+        //tabs = (TabLayout) findViewById(R.id.tabs);
+        //tabs.setupWithViewPager(pager);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setPopupTheme(R.style.ThemeOverlay_AppCompat_Light);
         if(toolbar != null) {
             setSupportActionBar(toolbar);
-        }
+        }*/
     }
 
     @Override

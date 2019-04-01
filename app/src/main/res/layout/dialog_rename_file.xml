@@ -10,7 +10,8 @@
         android:id="@+id/new_name"
         android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="test"/>
 
     <TextVew
         android:text=".mp4"
